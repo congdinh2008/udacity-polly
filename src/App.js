@@ -5,6 +5,7 @@ import CreatePoll from "./pages/CreatePoll";
 import Home from "./pages/Home";
 import LeaderBoard from "./pages/LeaderBoard";
 import Login from "./pages/Login";
+import PollItem from "./pages/PollItem";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/leader-board" element={<LeaderBoard />} />
           <Route path="/new" element={<CreatePoll />} />
+          <Route path="/poll/:id" element={<PollItem />} />
         </Routes>
       </main>
     </Fragment>

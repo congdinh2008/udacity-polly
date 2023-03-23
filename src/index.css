@@ -38,6 +38,12 @@ code {
 .justify-content-center {
   justify-content: center;
 }
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-around {
+  justify-content: space-around;
+}
 
 .align-items-center {
   align-items: center;
@@ -261,7 +267,7 @@ tbody tr td:first-child {
   width: 300px;
 }
 
-.poll-item {
+.poll-overview {
   width: 23%;
   border: 1px solid #ccc;
   padding: 10px;
@@ -269,10 +275,39 @@ tbody tr td:first-child {
   margin: 0 8px;
 }
 
-.poll-info {
+.poll-overview-info {
   margin-bottom: 16px;
 }
 
-.poll-info h4 {
+.poll-overview-info h4 {
   margin-bottom: 5px;
+}
+
+/* Poll Item CSS */
+
+.poll-item .author-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.poll-item .author-avatar img {
+  width: 200px;
+  height: auto;
+}
+
+.poll-info .option {
+  width: 50%;
+  border: 1px solid #ccc;
+  margin: 0px 8px;
+}
+
+.poll-info .option-detail {
+  display: block;
+  padding: 8px 16px;
+}
+
+.poll-info .btn-vote {
+  border: 0;
+  background-color: #078d8d;
+  color: #fff;
 }
