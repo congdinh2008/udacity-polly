@@ -1,8 +1,12 @@
+import { LOGIN, LOGOUT } from "./users";
+
 export const SET_AUTHED_USER = "SET_AUTHED_USER";
 
-export default function setAuthedUser(id) {
-  return {
-    type: SET_AUTHED_USER,
-    id,
-  };
-}
+export const loginUser = (user) => ({
+  type: LOGIN,
+  payload: user,
+});
+
+export const logoutUser = () => ({
+  type: LOGOUT,
+});

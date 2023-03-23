@@ -1,11 +1,17 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logoutUser } from "../actions/authedUser";
 import avatar from "../assets/images/avatars/avatar-5.png";
 
 const Navbar = () => {
   const [isShowProfileMenu, setIsShowProfileMenu] = useState(false);
-
-  const logout = () => {};
+  const isLoggedIn = useSelector((state) => state.authedUser.isLoggedIn);
+  const dispatch = useDispatch();
+  
+  const logout = () => {
+    dispatch(logoutUser());
+  };
   return (
     <nav className="navbar">
       <ul className="nav-menu">
@@ -20,28 +26,34 @@ const Navbar = () => {
         </li>
       </ul>
       <ul className="profile-menu">
-        <li
-          className="nav-item"
-          onClick={() => setIsShowProfileMenu(!isShowProfileMenu)}
-        >
-          <Link className="profile-avatar">
-            <img src={avatar} alt="" />
-            <span className="profile-name">Cong Dinh</span>
-          </Link>
-          <div
-            className={`profile-dropdown d-flex flex-column text-center ${
-              isShowProfileMenu ? "show" : ""
-            }`}
+        {isLoggedIn ? (
+          <li
+            className="nav-item"
+            onClick={() => setIsShowProfileMenu(!isShowProfileMenu)}
           >
-            <img src={avatar} alt="" />
-            <div className="profile-dropdown-actions d-flex flex-column">
+            <Link className="profile-avatar">
+              <img src={avatar} alt="" />
               <span className="profile-name">Cong Dinh</span>
-              <Link to={"/"} onClick={logout}>
-                Logout
-              </Link>
+            </Link>
+            <div
+              className={`profile-dropdown d-flex flex-column text-center ${
+                isShowProfileMenu ? "show" : ""
+              }`}
+            >
+              <img src={avatar} alt="" />
+              <div className="profile-dropdown-actions d-flex flex-column">
+                <span className="profile-name">Cong Dinh</span>
+                <Link to={"/"} onClick={logout}>
+                  Logout
+                </Link>
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
+        ) : (
+          <li className="nav-item">
+            <Link to="/login">Login</Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

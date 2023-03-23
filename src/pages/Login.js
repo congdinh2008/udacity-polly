@@ -1,16 +1,29 @@
 import { useState } from "react";
 import { FaPoll } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../actions/authedUser";
+import { login } from "../apis/api";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // call your API to authenticate user
-    // assuming the API returns a user object with an id and name property
-    navigate("/");
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const user = { username, password };
+    login(user).then((res) => {
+      if(res.success) {
+        dispatch(loginUser(res.user));
+        alert("Login successful")
+        navigate("/");
+      } else{
+        alert("Login failed");
+      }
+    })
   };
 
   return (

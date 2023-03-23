@@ -3,7 +3,7 @@ let users = {
     id: "sarahedo",
     password: "password123",
     name: "Sarah Edo",
-    avatarURL: 'avatar-1.png',
+    avatarURL: "avatar-1.png",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionOne",
@@ -16,7 +16,7 @@ let users = {
     id: "tylermcginnis",
     password: "abc321",
     name: "Tyler McGinnis",
-    avatarURL: 'avatar-2.png',
+    avatarURL: "avatar-2.png",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo",
@@ -27,7 +27,7 @@ let users = {
     id: "mtsamis",
     password: "xyz123",
     name: "Mike Tsamis",
-    avatarURL: 'avatar-3.png',
+    avatarURL: "avatar-3.png",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",
@@ -39,7 +39,7 @@ let users = {
     id: "zoshikanlu",
     password: "pass246",
     name: "Zenobia Oshikanlu",
-    avatarURL: 'avatar-4.png',
+    avatarURL: "avatar-4.png",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
     },
@@ -138,6 +138,28 @@ function generateUID() {
 export function _getUsers() {
   return new Promise((resolve) => {
     setTimeout(() => resolve({ ...users }), 1000);
+  });
+}
+
+export function _login(username, password) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const currentUser = Object.values(users).find(
+        (user) => user.id === username && user.password === password
+      );
+      if (currentUser) {
+        return resolve({
+          success: true,
+          message: "Login successful",
+          user: currentUser,
+        });
+      }
+      return reject({
+        success: false,
+        message: "Invalid username or password",
+        user: null,
+      });
+    }, 1000);
   });
 }
 
