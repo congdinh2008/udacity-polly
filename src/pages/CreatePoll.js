@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { FaPoll } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 const CreatePoll = () => {
   const [optionOne, setOptionOne] = useState("");
