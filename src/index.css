@@ -147,11 +147,12 @@ code {
 .profile-dropdown {
   position: absolute;
   top: 64px;
-  left: 0;
+  right: 0;
   display: none;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 100%;
+  width: 200%;
+  background-color: #fff;
 }
 
 .profile-dropdown.show {
@@ -310,4 +311,13 @@ tbody tr td:first-child {
   border: 0;
   background-color: #078d8d;
   color: #fff;
+}
+
+.error-message {
+  display: none;
+  color: red;
+}
+
+.error-message.show {
+  display: block;
 }

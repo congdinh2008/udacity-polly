@@ -7,23 +7,28 @@ import { login } from "../apis/api";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     const user = { username, password };
-    login(user).then((res) => {
-      if(res.success) {
-        dispatch(loginUser(res.user));
-        alert("Login successful")
-        navigate("/");
-      } else{
-        alert("Login failed");
-      }
-    })
+    login(user)
+      .then((res) => {
+        if (res.success) {
+          login(res);
+          dispatch(loginUser(res.user));
+          navigate("/");
+        } else {
+          setErrorMessage(res.message);
+        }
+      })
+      .catch((err) => {
+        setErrorMessage(err.message);
+      });
   };
 
   return (
@@ -57,8 +62,13 @@ const Login = () => {
                 onChange={(event) => setPassword(event.target.value)}
               />
             </div>
-            <button className="btn btn-submit" type="submit">Login</button>
+            <button className="btn btn-submit" type="submit">
+              Login
+            </button>
           </form>
+          <span className={`error-message ${errorMessage ? "show" : ""}`}>
+            {errorMessage}
+          </span>
         </div>
       </div>
     </section>
