@@ -289,6 +289,12 @@ tbody tr td:first-child {
   color: #696969;
 }
 
+.poll-overview a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+
 /* Poll Item CSS */
 
 .poll-item .author-title {

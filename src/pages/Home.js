@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
+import { LoadingBar } from "react-redux-loading-bar";
 import handleReceiveData from "../actions/shared";
 import PollCollection from "../components/PollCollection";
 
@@ -9,10 +10,18 @@ const Home = (props) => {
   }, []);
 
   return (
-    <section className="home">
-      <PollCollection title={"New Questions"} questions={props.unAnsweredQuestions} />
-      <PollCollection title={"Done"} questions={props.answeredQuestions} />
-    </section>
+    <Fragment>
+      <LoadingBar />
+      {props.loading === true ? null : (
+        <section className="home">
+          <PollCollection
+            title={"New Questions"}
+            questions={props.unAnsweredQuestions}
+          />
+          <PollCollection title={"Done"} questions={props.answeredQuestions} />
+        </section>
+      )}
+    </Fragment>
   );
 };
 
