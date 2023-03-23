@@ -14,7 +14,7 @@ const CreatePoll = () => {
   };
 
   return (
-    <section className="form-section d-flex flex-colum justify-content-center align-items-center">
+    <section className="form-section d-flex flex-colum justify-content-center">
       <div className="form-container create-poll-container text-center">
         <div className="form-header">
           <h1>Would You Rather</h1>
