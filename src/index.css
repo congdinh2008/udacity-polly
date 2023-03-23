@@ -16,6 +16,8 @@ code {
     monospace;
 }
 
+/* Common CSS */
+
 .container {
   width: 80%;
   margin: auto;
@@ -44,6 +46,45 @@ code {
 .text-center {
   text-align: center;
 }
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.card-header {
+  border-bottom: 1px solid #ccc;
+  background-color: #f3eeee;
+  padding: 16px;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.card-body {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.btn-light{
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.btn-light:hover{
+  background-color: #ebe9e9;
+}
+
+.my-3{
+  margin: 1.5rem 0;
+}
+
+/* Navbar CSS */
 
 .navbar {
   display: flex;
@@ -127,6 +168,8 @@ code {
   background-color: cyan;
 }
 
+/* Form CSS */
+
 .form-section {
   width: 100%;
 }
@@ -150,7 +193,6 @@ code {
 }
 
 .form button {
-  padding: 8px 16px;
   background-color: cyan;
   border-radius: 4px;
   border: none;
@@ -192,7 +234,7 @@ code {
   margin-top: 60px;
 }
 
-table.leader-board {
+table {
   border-collapse: collapse;
 }
 
@@ -209,4 +251,20 @@ thead th {
 
 tbody tr td:first-child {
   width: 300px;
+}
+
+.poll-item {
+  width: 23%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 0 8px;
+}
+
+.poll-info {
+  margin-bottom: 16px;
+}
+
+.poll-info h4 {
+  margin-bottom: 5px;
 }

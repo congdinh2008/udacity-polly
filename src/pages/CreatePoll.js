@@ -46,7 +46,7 @@ const CreatePoll = () => {
                 onChange={(event) => setOptionTwo(event.target.value)}
               />
             </div>
-            <button type="submit">Create Poll</button>
+            <button className="btn btn-submit" type="submit">Create Poll</button>
           </form>
         </div>
       </div>
