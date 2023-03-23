@@ -43,8 +43,16 @@ code {
   align-items: center;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .text-center {
   text-align: center;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .card {
@@ -71,16 +79,16 @@ code {
   cursor: pointer;
 }
 
-.btn-light{
+.btn-light {
   background-color: #fff;
   border: 1px solid #ccc;
 }
 
-.btn-light:hover{
+.btn-light:hover {
   background-color: #ebe9e9;
 }
 
-.my-3{
+.my-3 {
   margin: 1.5rem 0;
 }
 
