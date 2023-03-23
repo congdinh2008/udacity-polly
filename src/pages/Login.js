@@ -14,13 +14,13 @@ const Login = () => {
   };
 
   return (
-    <section className="login-section d-flex align-items-center">
-      <div className="login-container">
-        <div className="login-header">
+    <section className="form-section login-section d-flex align-items-center">
+      <div className="form-container login-container text-center">
+        <div className="form-header">
           <h1>Udacity Polly</h1>
           <FaPoll />
         </div>
-        <div className="login-form">
+        <div className="form login-form">
           <form onSubmit={handleSubmit}>
             <div className="form-group d-flex flex-column">
               <label htmlFor="username" className="form-control-label">
