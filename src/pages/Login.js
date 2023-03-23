@@ -19,7 +19,6 @@ const Login = () => {
     login(user)
       .then((res) => {
         if (res.success) {
-          login(res);
           dispatch(loginUser(res.user));
           navigate("/");
         } else {

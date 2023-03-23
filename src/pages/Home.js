@@ -7,6 +7,7 @@ const Home = (props) => {
   useEffect(() => {
     props.dispatch(handleReceiveData());
   }, []);
+  
   return (
     <section className="home">
       <PollCollection title={"New Questions"} />
