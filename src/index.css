@@ -284,6 +284,11 @@ tbody tr td:first-child {
   margin-bottom: 5px;
 }
 
+.poll-overview-date {
+  font-size: 14px;
+  color: #696969;
+}
+
 /* Poll Item CSS */
 
 .poll-item .author-title {
