@@ -61,6 +61,14 @@ code {
   width: 100%;
 }
 
+.w-50 {
+  width: 50%;
+}
+
+.w-25 {
+  width: 25%;
+}
+
 .card {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -100,6 +108,10 @@ code {
 
 .mb-3 {
   margin-bottom: 1.5rem;
+}
+
+.m-2 {
+  margin: 1rem;
 }
 
 /* Navbar CSS */
@@ -229,7 +241,7 @@ code {
 }
 
 .login-container {
-  width: 450px;
+  width: 650px;
   margin: auto;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -240,7 +252,11 @@ code {
 
 .login-container svg {
   font-size: 96px;
-  margin-bottom: 2rem;
+}
+
+.login-container img {
+  width: 48px;
+  height: auto;
 }
 
 /* Create Poll CSS */
@@ -357,12 +373,12 @@ tbody tr td:first-child {
   color: #000;
 }
 
-.btn-back{
+.btn-back {
   text-decoration: none;
   background-color: #e6e3e3;
 }
 
-.btn-back:hover{
+.btn-back:hover {
   background-color: #dbd8d8;
 }
 .error-message {

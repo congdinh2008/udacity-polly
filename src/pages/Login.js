@@ -1,16 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaPoll } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../actions/authedUser";
 import { login } from "../apis/api";
-const Login = () => {
+
+const Login = ({ users }) => {
+  const [selectedUser, setSelectedUser] = useState(null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+
+  useEffect(()=>{
+    if (selectedUser) {
+      setUsername(selectedUser.id);
+      setPassword(selectedUser.password);
+    }
+  }, [selectedUser])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,6 +45,21 @@ const Login = () => {
         <div className="form-header">
           <h1>Udacity Polly</h1>
           <FaPoll />
+        </div>
+        <div className="select-user d-flex justify-content-center">
+          {users &&
+            users.map((user) => (
+              <div className="card w-25 m-2" onClick={()=> setSelectedUser(user)}>
+                <div className="card-body">
+                  <img
+                    className="user-avatar"
+                    src={user.avatarURL}
+                    alt={user.name}
+                  />
+                  <span className="user-name">{user.name}</span>
+                </div>
+              </div>
+            ))}
         </div>
         <div className="form login-form">
           <form onSubmit={handleSubmit}>
@@ -74,4 +98,10 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = ({ users }) => {
+  return {
+    users: Object.keys(users).map((id) => users[id]),
+  };
+};
+
+export default connect(mapStateToProps)(Login);
