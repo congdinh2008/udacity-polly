@@ -27,8 +27,8 @@ const App = (props) => {
             <Route path="leader-board" element={<LeaderBoard />} />
             <Route path="add" element={<CreatePoll />} />
             <Route path="question/:id" element={<PollItem />} />
-            <Route path="*" element={<NotFound />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </Fragment>
