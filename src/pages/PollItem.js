@@ -1,6 +1,9 @@
 import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import avatar from "../assets/images/avatars/avatar-5.png";
+import NotFound from "./NotFound";
+import { handleVoteQuestion } from "../actions/questions";
+import { formatQuestion } from "../helpers/helpers";
+import { useEffect, useState } from "react";
 
 const withRouter = (Component) => {
   const ComponentWithRouterProp = (props) => {
@@ -13,40 +16,116 @@ const withRouter = (Component) => {
   return ComponentWithRouterProp;
 };
 
-const PollItem = (props) => {
-  return (
+const PollItem = ({ id, user, exists, question, selected, dispatch }) => {
+  const [answer, setAnswer] = useState(selected);
+
+  useEffect(() => {
+    if (!selected && answer) {
+      dispatch(handleVoteQuestion({ qid: id, answer }));
+    }
+  }, [answer, selected, dispatch, id]);
+
+  const optionOneStats = () => {
+    return (
+      (question.optionOne.votes.length /
+        (question.optionOne.votes.length + question.optionTwo.votes.length)) *
+      100
+    ).toFixed(2);
+  };
+
+  const optionTwoStats = () => {
+    return (
+      (question.optionTwo.votes.length /
+        (question.optionOne.votes.length + question.optionTwo.votes.length)) *
+      100
+    ).toFixed(2);
+  };
+
+  return exists ? (
     <section className="poll-item text-center my-3">
       <div className="author-info">
-        <div className="author-title">Poll by User 01</div>
+        <div className="author-title">Poll by {user.name}</div>
         <div className="author-avatar">
-          <img src={avatar} alt="" />
+          <img src={user.avatarURL} alt={user.name} />
         </div>
       </div>
       <div className="poll-info">
         <h1>Would You Rather</h1>
         <div className="list-options d-flex justify-content-center">
-          <div className="option">
-            <span className="option-detail">Build our new application with JS</span>
-            <button type="button" className="btn btn-vote w-100">
-              Vote
+          <div className="option d-flex flex-column justify-content-between">
+            <span className="option-detail">{question.optionOne.text}</span>
+            <button
+              type="button"
+              className={`btn btn-vote w-100 ${
+                answer === "optionOne" ? "selected" : ""
+              }`}
+              title="optionOne"
+              onClick={(e) => setAnswer(e.target.title)}
+              disabled={answer}
+            >
+              {answer === "optionOne" ? "Your Choice" : "Vote"}
             </button>
           </div>
-          <div className="option">
-            <span className="option-detail">Build our new application with JS</span>
-            <button type="button" className="btn btn-vote w-100">
-              Vote
+          <div className="option d-flex flex-column justify-content-between">
+            <span className="option-detail">{question.optionTwo.text}</span>
+            <button
+              type="button"
+              className={`btn btn-vote w-100 ${
+                answer === "optionTwo" ? "selected" : ""
+              }`}
+              title="optionTwo"
+              onClick={(e) => setAnswer(e.target.title)}
+              disabled={answer}
+            >
+              {answer === "optionTwo" ? "Your Choice" : "Vote"}
             </button>
           </div>
         </div>
+        {answer && (
+          <div className="statistic d-flex justify-content-center my-3">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Your Choice</th>
+                  <th>Option</th>
+                  <th>Voted</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{answer === "optionOne" ? "Yes" : "No"}</td>
+                  <td>{question.optionOne.text}</td>
+                  <td>{optionOneStats()}%</td>
+                </tr>
+                <tr>
+                  <td>{answer === "optionTwo" ? "Yes" : "No"}</td>
+                  <td>{question.optionTwo.text}</td>
+                  <td>{optionTwoStats()}%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </section>
+  ) : (
+    <NotFound />
   );
 };
 
-const mapStateToProps = (props) => {
-  console.log(props.router);
+const mapStateToProps = ({ authedUser, users, questions }, { router }) => {
+  const { id } = router.params;
+  const user = users[authedUser.currentUser.id];
+  const exists = Object.keys(questions).includes(id);
+  const question = questions[id];
+  const selected = user.answers[id] || "";
+
   return {
-    id: ""
+    id,
+    user,
+    exists,
+    question: formatQuestion(question, users, authedUser),
+    selected,
   };
 };
 

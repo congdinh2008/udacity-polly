@@ -307,6 +307,11 @@ tbody tr td:first-child {
   height: auto;
 }
 
+.poll-info button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 .poll-info .option {
   width: 50%;
   border: 1px solid #ccc;
@@ -322,6 +327,31 @@ tbody tr td:first-child {
   border: 0;
   background-color: #078d8d;
   color: #fff;
+  position: relative;
+}
+
+.poll-info .btn-vote span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.poll-info .btn-vote.selected {
+  border: 0;
+  background-color: #078d8d;
+  color: #fff;
+}
+
+.poll-info .poll-progress {
+  position: absolute;
+  display: flex;
+  align-items: center;
+
+
+  background-color: yellow;
+  color: #000;
 }
 
 .error-message {

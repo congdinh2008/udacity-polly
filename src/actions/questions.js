@@ -1,5 +1,6 @@
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 import { saveQuestion, saveQuestionAnswer } from "../apis/api";
+import { assignQuestion, setUserAnswer } from "./users";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const VOTE_QUESTION = "VOTE_QUESTION";
@@ -26,15 +27,21 @@ export function handleAddQuestion(question) {
     dispatch(showLoading());
 
     return saveQuestion(Object.assign({}, question, { authed: authedUser }))
-      .then((tweet) => dispatch(addQuestion(tweet)))
+      .catch((e) => {
+        console.warn("Error saving a new question ", e);
+      })
+      .then((question) => {
+        dispatch(addQuestion(question))
+        dispatch(assignQuestion(question))
+      })
       .then(() => dispatch(hideLoading()));
   };
 }
 
-function voteQuestion({ id, authedUser, answer }) {
+function voteQuestion({ qid, authedUser, answer }) {
   return {
     type: VOTE_QUESTION,
-    id,
+    qid,
     authedUser,
     answer,
   };
@@ -44,14 +51,15 @@ export function handleVoteQuestion(info) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
 
-    Object.assign(info, { authedUser: authedUser });
+    Object.assign(info, { authedUser: authedUser.currentUser.id });
 
     dispatch(voteQuestion(info));
 
     return saveQuestionAnswer(info).catch((e) => {
       console.warn("Error in vote question: ", e);
+    }).then(()=>{
       dispatch(voteQuestion(info));
-      alert("Error in vote question. Try again.");
+      dispatch(setUserAnswer(info));
     });
   };
 }
