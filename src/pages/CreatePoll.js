@@ -1,14 +1,21 @@
 import { useState } from "react";
+import { connect, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { handleAddQuestion } from "../actions/questions";
+
 const CreatePoll = () => {
-  const [optionOne, setOptionOne] = useState("");
-  const [optionTwo, setOptionTwo] = useState("");
+  const [optionOneText, setOptionOneText] = useState("");
+  const [optionTwoText, setOptionTwoText] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // call your API to authenticate user
     // assuming the API returns a user object with an id and name property
+    dispatch(handleAddQuestion({ optionOneText, optionTwoText }));
+    setOptionOneText("");
+    setOptionTwoText("");
     navigate("/");
   };
 
@@ -29,9 +36,9 @@ const CreatePoll = () => {
                 type="text"
                 id="option-one"
                 placeholder="Option One"
-                value={optionOne}
-                onChange={(event) => setOptionOne(event.target.value)}
-                />
+                value={optionOneText}
+                onChange={(event) => setOptionOneText(event.target.value)}
+              />
             </div>
             <div className="form-group d-flex flex-column">
               <label htmlFor="option-two" className="form-control-label">
@@ -41,11 +48,13 @@ const CreatePoll = () => {
                 type="text"
                 id="option-two"
                 placeholder="Option Two"
-                value={optionTwo}
-                onChange={(event) => setOptionTwo(event.target.value)}
+                value={optionTwoText}
+                onChange={(event) => setOptionTwoText(event.target.value)}
               />
             </div>
-            <button className="btn btn-submit" type="submit">Create Poll</button>
+            <button className="btn btn-submit" type="submit">
+              Create Poll
+            </button>
           </form>
         </div>
       </div>
@@ -53,4 +62,4 @@ const CreatePoll = () => {
   );
 };
 
-export default CreatePoll;
+export default connect()(CreatePoll);

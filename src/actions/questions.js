@@ -26,7 +26,7 @@ export function handleAddQuestion(question) {
 
     dispatch(showLoading());
 
-    return saveQuestion(Object.assign({}, question, { authed: authedUser }))
+    return saveQuestion(Object.assign({}, question, { author: authedUser.currentUser.id }))
       .catch((e) => {
         console.warn("Error saving a new question ", e);
       })
@@ -58,7 +58,6 @@ export function handleVoteQuestion(info) {
     return saveQuestionAnswer(info).catch((e) => {
       console.warn("Error in vote question: ", e);
     }).then(()=>{
-      console.log(info);
       dispatch(voteQuestion(info));
       dispatch(setUserAnswer(info));
     });

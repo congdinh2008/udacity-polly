@@ -125,7 +125,7 @@ const mapStateToProps = ({ authedUser, users, questions }, { router }) => {
     id,
     user,
     exists,
-    question: formatQuestion(question, users, authedUser),
+    question: formatQuestion(question, users),
     selected,
   };
 };
