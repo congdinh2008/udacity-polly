@@ -49,7 +49,7 @@ const Login = ({ users }) => {
         <div className="select-user d-flex justify-content-center">
           {users &&
             users.map((user) => (
-              <div className="card w-25 m-2" onClick={()=> setSelectedUser(user)}>
+              <div key={user.id} className="card w-25 m-2" onClick={()=> setSelectedUser(user)}>
                 <div className="card-body">
                   <img
                     className="user-avatar"

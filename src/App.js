@@ -25,7 +25,7 @@ const App = (props) => {
           <Route path="/" element={<ProtectedRoute redirectTo="/login" />}>
             <Route index element={<Home />} />
             <Route path="leader-board" element={<LeaderBoard />} />
-            <Route path="new" element={<CreatePoll />} />
+            <Route path="add" element={<CreatePoll />} />
             <Route path="question/:id" element={<PollItem />} />
             <Route path="*" element={<NotFound />} />
           </Route>

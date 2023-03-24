@@ -23,7 +23,7 @@ const Navbar = () => {
           <Link to="/leader-board">Leader Board</Link>
         </li>
         <li className="nav-item">
-          <Link to="/new">New</Link>
+          <Link to="/add">New</Link>
         </li>
       </ul>
       <ul className="profile-menu">
