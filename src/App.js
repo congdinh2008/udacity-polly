@@ -1,6 +1,7 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { Route, Routes } from "react-router-dom";
+import handleReceiveData from "./actions/shared";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./context/ProtectedRoute";
 import CreatePoll from "./pages/CreatePoll";
@@ -9,7 +10,11 @@ import LeaderBoard from "./pages/LeaderBoard";
 import Login from "./pages/Login";
 import PollItem from "./pages/PollItem";
 
-const App = () => {
+const App = (props) => {
+  useEffect(() => {
+    props.dispatch(handleReceiveData());
+  }, [props]);
+
   return (
     <Fragment>
       <Navbar />

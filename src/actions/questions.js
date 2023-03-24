@@ -58,6 +58,7 @@ export function handleVoteQuestion(info) {
     return saveQuestionAnswer(info).catch((e) => {
       console.warn("Error in vote question: ", e);
     }).then(()=>{
+      console.log(info);
       dispatch(voteQuestion(info));
       dispatch(setUserAnswer(info));
     });

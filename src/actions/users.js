@@ -1,6 +1,6 @@
 export const RECEIVE_USERS = "RECEIVE_USERS";
-export const SET_USER_ANSWER = "RECEIVE_USERS";
-export const ASSIGN_QUESTION = "RECEIVE_USERS";
+export const SET_USER_ANSWER = "SET_USER_ANSWER";
+export const ASSIGN_QUESTION = "ASSIGN_QUESTION";
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 
@@ -11,15 +11,15 @@ export const receiveUsers = (users) => {
   };
 };
 
-export const setUserAnswer = (id, authedUser, answer) => {
+export const setUserAnswer = ({qid, authedUser, answer}) => {
   return {
     type: SET_USER_ANSWER,
-    id,
+    qid,
     authedUser,
     answer,
   };
 }
-export const assignQuestion = (author, id) => {
+export const assignQuestion = ({author, id}) => {
   return {
     type: ASSIGN_QUESTION,
     author,

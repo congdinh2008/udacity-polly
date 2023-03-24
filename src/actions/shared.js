@@ -8,6 +8,7 @@ export default function handleReceiveData() {
   return (dispatch) => {
     dispatch(showLoading());
     return getInitialData().then(({ users, questions }) => {
+      console.log(users, questions);
       dispatch(receiveUsers(users));
       dispatch(receiveQuestions(questions));
       dispatch(hideLoading());

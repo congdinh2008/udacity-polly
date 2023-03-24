@@ -1,13 +1,9 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { connect } from "react-redux";
 import { LoadingBar } from "react-redux-loading-bar";
-import handleReceiveData from "../actions/shared";
 import PollCollection from "../components/PollCollection";
 
 const Home = (props) => {
-  useEffect(() => {
-    props.dispatch(handleReceiveData());
-  }, []);
 
   return (
     <Fragment>
