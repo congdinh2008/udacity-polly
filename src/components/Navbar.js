@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../actions/authedUser";
-import avatar from "../assets/images/avatars/avatar-5.png";
 
 const Navbar = () => {
   const [isShowProfileMenu, setIsShowProfileMenu] = useState(false);
   const isLoggedIn = useSelector((state) => state.authedUser.isLoggedIn);
+  const currentUser = useSelector((state) => state.authedUser.currentUser);
+
   const dispatch = useDispatch();
-  
+
   const logout = () => {
     dispatch(logoutUser());
   };
@@ -32,17 +33,17 @@ const Navbar = () => {
             onClick={() => setIsShowProfileMenu(!isShowProfileMenu)}
           >
             <Link className="profile-avatar">
-              <img src={avatar} alt="" />
-              <span className="profile-name">Cong Dinh</span>
+              <img src={currentUser.avatarURL} alt={currentUser.name} />
+              <span className="profile-name">{currentUser.name}</span>
             </Link>
             <div
               className={`profile-dropdown d-flex flex-column text-center ${
                 isShowProfileMenu ? "show" : ""
               }`}
             >
-              <img src={avatar} alt="" />
+              <img src={currentUser.avatarURL} alt={currentUser.name} />
               <div className="profile-dropdown-actions d-flex flex-column">
-                <span className="profile-name">Cong Dinh</span>
+                <span className="profile-name">{currentUser.name}</span>
                 <Link to={"/login"} onClick={logout}>
                   Logout
                 </Link>
