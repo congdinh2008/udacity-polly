@@ -4,7 +4,6 @@ import { LoadingBar } from "react-redux-loading-bar";
 import PollCollection from "../components/PollCollection";
 
 const Home = (props) => {
-
   return (
     <Fragment>
       <LoadingBar />
@@ -21,18 +20,26 @@ const Home = (props) => {
   );
 };
 
-const mapStateToProps = ({ authedUser, questions }, props) => ({
-  loading: authedUser === null || Object.keys(questions).length === 0,
-  answeredQuestions: Object.values(questions).filter(
-    (q) =>
-      q.optionOne.votes.includes(authedUser.currentUser.id) ||
-      q.optionTwo.votes.includes(authedUser.currentUser.id)
-  ),
-  unAnsweredQuestions: Object.values(questions).filter(
-    (q) =>
-      !q.optionOne.votes.includes(authedUser.currentUser.id) &&
-      !q.optionTwo.votes.includes(authedUser.currentUser.id)
-  ),
-});
+const mapStateToProps = ({ authedUser, questions }) => {
+  return {
+    loading: authedUser.currentUser === null || Object.keys(questions).length === 0,
+    answeredQuestions:
+      authedUser.currentUser === null
+        ? []
+        : Object.values(questions).filter(
+            (q) =>
+              q.optionOne.votes.includes(authedUser.currentUser.id) ||
+              q.optionTwo.votes.includes(authedUser.currentUser.id)
+          ),
+    unAnsweredQuestions:
+      authedUser.currentUser === null
+        ? []
+        : Object.values(questions).filter(
+            (q) =>
+              !q.optionOne.votes.includes(authedUser.currentUser.id) &&
+              !q.optionTwo.votes.includes(authedUser.currentUser.id)
+          ),
+  };
+};
 
 export default connect(mapStateToProps)(Home);
