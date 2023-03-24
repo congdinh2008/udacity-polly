@@ -357,6 +357,14 @@ tbody tr td:first-child {
   color: #000;
 }
 
+.btn-back{
+  text-decoration: none;
+  background-color: #e6e3e3;
+}
+
+.btn-back:hover{
+  background-color: #dbd8d8;
+}
 .error-message {
   display: none;
   color: red;

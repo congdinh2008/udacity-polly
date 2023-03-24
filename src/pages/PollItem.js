@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import NotFound from "./NotFound";
 import { handleVoteQuestion } from "../actions/questions";
 import { formatQuestion } from "../helpers/helpers";
@@ -49,7 +49,7 @@ const PollItem = ({ id, user, exists, question, selected, dispatch }) => {
           <img src={user.avatarURL} alt={user.name} />
         </div>
       </div>
-      <div className="poll-info">
+      <div className="poll-info my-3">
         <h1>Would You Rather</h1>
         <div className="list-options d-flex justify-content-center">
           <div className="option d-flex flex-column justify-content-between">
@@ -107,6 +107,7 @@ const PollItem = ({ id, user, exists, question, selected, dispatch }) => {
           </div>
         )}
       </div>
+      <Link to="/" className="btn btn-back">Home</Link>
     </section>
   ) : (
     <NotFound />
