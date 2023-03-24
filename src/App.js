@@ -9,48 +9,20 @@ import LeaderBoard from "./pages/LeaderBoard";
 import Login from "./pages/Login";
 import PollItem from "./pages/PollItem";
 
-const App = (props) => {
+const App = () => {
   return (
     <Fragment>
       <Navbar />
       <main className="container">
-        {props.loading === true ? null : (
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <Home />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/leader-board"
-              element={
-                <ProtectedRoute>
-                  <LeaderBoard />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/new"
-              element={
-                <ProtectedRoute>
-                  <CreatePoll />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/question/:id"
-              element={
-                <ProtectedRoute>
-                  <PollItem />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
-        )}
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<ProtectedRoute redirectTo="/login" />}>
+            <Route index element={<Home />} />
+            <Route path="leader-board" element={<LeaderBoard />} />
+            <Route path="new" element={<CreatePoll />} />
+            <Route path="question/:id" element={<PollItem />} />
+          </Route>
+        </Routes>
       </main>
     </Fragment>
   );

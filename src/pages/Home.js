@@ -26,7 +26,7 @@ const Home = (props) => {
 };
 
 const mapStateToProps = ({ authedUser, questions }, props) => ({
-  loading: authedUser === null,
+  loading: authedUser === null || Object.keys(questions).length === 0,
   answeredQuestions: Object.values(questions).filter(
     (q) =>
       q.optionOne.votes.includes(authedUser.currentUser.id) ||
