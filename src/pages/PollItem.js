@@ -89,6 +89,7 @@ const PollItem = ({ id, user, exists, question, selected, dispatch }) => {
                 <tr>
                   <th>Your Choice</th>
                   <th>Option</th>
+                  <th>Total Votes</th>
                   <th>Voted</th>
                 </tr>
               </thead>
@@ -96,11 +97,13 @@ const PollItem = ({ id, user, exists, question, selected, dispatch }) => {
                 <tr>
                   <td>{answer === "optionOne" ? "Yes" : "No"}</td>
                   <td>{question.optionOne.text}</td>
+                  <td>{question.optionOne.votes.length}</td>
                   <td>{optionOneStats()}%</td>
                 </tr>
                 <tr>
                   <td>{answer === "optionTwo" ? "Yes" : "No"}</td>
                   <td>{question.optionTwo.text}</td>
+                  <td>{question.optionTwo.votes.length}</td>
                   <td>{optionTwoStats()}%</td>
                 </tr>
               </tbody>
