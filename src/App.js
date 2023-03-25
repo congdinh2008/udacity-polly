@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import handleReceiveData from "./actions/shared";
 import Navbar from "./components/Navbar";
+import RouteURLs from "./constants/routeURLs";
 import ProtectedRoute from "./context/ProtectedRoute";
 import CreatePoll from "./pages/CreatePoll";
 import Home from "./pages/Home";
@@ -21,12 +22,12 @@ const App = (props) => {
       <Navbar />
       <main className="container">
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<ProtectedRoute redirectTo="/login" />}>
+          <Route path={RouteURLs.LOGIN_URL} element={<Login />} />
+          <Route path={RouteURLs.HOME_URL} element={<ProtectedRoute redirectTo={RouteURLs.LOGIN_URL} />}>
             <Route index element={<Home />} />
-            <Route path="leader-board" element={<LeaderBoard />} />
-            <Route path="add" element={<CreatePoll />} />
-            <Route path="questions/:id" element={<PollItem />} />
+            <Route path={RouteURLs.LEADER_BOARD_URL} element={<LeaderBoard />} />
+            <Route path={RouteURLs.CREATE_POLL_URL} element={<CreatePoll />} />
+            <Route path={RouteURLs.POLL_ITEM_URL} element={<PollItem />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
