@@ -4,6 +4,7 @@ import NotFound from "./NotFound";
 import { handleVoteQuestion } from "../actions/questions";
 import { formatQuestion } from "../helpers/helpers";
 import { useEffect, useState } from "react";
+import RouteURLs from "../constants/routeURLs";
 
 const withRouter = (Component) => {
   const ComponentWithRouterProp = (props) => {
@@ -107,7 +108,7 @@ const PollItem = ({ id, user, exists, question, selected, dispatch }) => {
           </div>
         )}
       </div>
-      <Link to="/" className="btn btn-back">Home</Link>
+      <Link to={RouteURLs.HOME_URL} className="btn btn-back">Home</Link>
     </section>
   ) : (
     <NotFound />

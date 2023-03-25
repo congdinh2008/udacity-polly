@@ -2,6 +2,7 @@ import { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { handleAddQuestion } from "../actions/questions";
+import RouteURLs from "../constants/routeURLs";
 
 const CreatePoll = () => {
   const [optionOneText, setOptionOneText] = useState("");
@@ -16,7 +17,7 @@ const CreatePoll = () => {
     dispatch(handleAddQuestion({ optionOneText, optionTwoText }));
     setOptionOneText("");
     setOptionTwoText("");
-    navigate("/");
+    navigate(RouteURLs.HOME_URL);
   };
 
   return (

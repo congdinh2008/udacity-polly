@@ -4,6 +4,7 @@ import { connect, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../actions/authedUser";
 import { login } from "../apis/api";
+import RouteURLs from "../constants/routeURLs";
 
 const Login = ({ users }) => {
   const [selectedUser, setSelectedUser] = useState(null);
@@ -29,7 +30,7 @@ const Login = ({ users }) => {
       .then((res) => {
         if (res.success) {
           dispatch(loginUser(res.user));
-          navigate("/");
+          navigate(RouteURLs.HOME_URL);
         } else {
           setErrorMessage(res.message);
         }
