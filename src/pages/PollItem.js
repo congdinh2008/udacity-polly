@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import NotFound from "./NotFound";
 import { handleVoteQuestion } from "../actions/questions";
 import { formatQuestion } from "../helpers/helpers";
 import { useEffect, useState } from "react";
@@ -19,7 +18,14 @@ const withRouter = (Component) => {
 
 const PollItem = ({ id, user, exists, question, selected, dispatch }) => {
   const [answer, setAnswer] = useState(selected);
+  const navigate = useNavigate();
 
+  useEffect(()=>{
+    if(!exists) {
+      navigate(RouteURLs.NOT_FOUND_URL)
+    }
+  }, [exists, navigate])
+  
   useEffect(() => {
     if (!selected && answer) {
       dispatch(handleVoteQuestion({ qid: id, answer }));
@@ -42,7 +48,7 @@ const PollItem = ({ id, user, exists, question, selected, dispatch }) => {
     ).toFixed(2);
   };
 
-  return exists ? (
+  return exists && (
     <section className="poll-item text-center my-3">
       <div className="author-info">
         <div className="author-title">Poll by {question.authorName}</div>
@@ -111,10 +117,10 @@ const PollItem = ({ id, user, exists, question, selected, dispatch }) => {
           </div>
         )}
       </div>
-      <Link to={RouteURLs.HOME_URL} className="btn btn-back">Home</Link>
+      <Link to={RouteURLs.HOME_URL} className="btn btn-back">
+        Home
+      </Link>
     </section>
-  ) : (
-    <NotFound />
   );
 };
 
@@ -130,7 +136,7 @@ const mapStateToProps = ({ authedUser, users, questions }, { router }) => {
     id,
     user,
     exists,
-    question: formatQuestion(question, users),
+    question: question ? formatQuestion(question, users) : {},
     selected,
   };
 };
