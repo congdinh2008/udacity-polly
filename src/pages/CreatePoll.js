@@ -52,7 +52,11 @@ const CreatePoll = () => {
                 onChange={(event) => setOptionTwoText(event.target.value)}
               />
             </div>
-            <button className="btn btn-submit" type="submit">
+            <button
+              className="btn btn-submit"
+              type="submit"
+              disabled={optionOneText === "" || optionTwoText === ""}
+            >
               Create Poll
             </button>
           </form>
