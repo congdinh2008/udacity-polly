@@ -392,3 +392,37 @@ tbody tr td:first-child {
 .error-message.show {
   display: block;
 }
+
+
+/* Home Tab Group CSS */
+
+.tab-header {
+  display: flex;
+  justify-content: center;
+}
+
+.tab-group button {
+  background-color: transparent;
+  border: none;
+  color: #555;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.tab-group button:hover {
+  color: #333;
+}
+
+.tab-group button.active {
+  color: #000;
+  border-bottom: 2px solid #000;
+  margin-bottom: -2px;
+}
+
+.tab-content{
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
