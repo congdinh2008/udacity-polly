@@ -26,7 +26,7 @@ const App = (props) => {
             <Route index element={<Home />} />
             <Route path="leader-board" element={<LeaderBoard />} />
             <Route path="add" element={<CreatePoll />} />
-            <Route path="question/:id" element={<PollItem />} />
+            <Route path="questions/:id" element={<PollItem />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

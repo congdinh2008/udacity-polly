@@ -32,8 +32,15 @@ Object {
             </svg>
           </div>
           <div
-            class="select-user d-flex justify-content-center"
-          />
+            class="select-user"
+          >
+            <h2>
+              Select an user
+            </h2>
+            <div
+              class="list-user d-flex justify-content-center"
+            />
+          </div>
           <div
             class="form login-form"
           >
@@ -114,8 +121,15 @@ Object {
           </svg>
         </div>
         <div
-          class="select-user d-flex justify-content-center"
-        />
+          class="select-user"
+        >
+          <h2>
+            Select an user
+          </h2>
+          <div
+            class="list-user d-flex justify-content-center"
+          />
+        </div>
         <div
           class="form login-form"
         >

@@ -14,12 +14,12 @@ const Login = ({ users }) => {
 
   const dispatch = useDispatch();
 
-  useEffect(()=>{
+  useEffect(() => {
     if (selectedUser) {
       setUsername(selectedUser.id);
       setPassword(selectedUser.password);
     }
-  }, [selectedUser])
+  }, [selectedUser]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,20 +46,28 @@ const Login = ({ users }) => {
           <h1>Udacity Polly</h1>
           <FaPoll />
         </div>
-        <div className="select-user d-flex justify-content-center">
-          {users &&
-            users.map((user) => (
-              <div key={user.id} className="card w-25 m-2" data-testid="card-user" onClick={()=> setSelectedUser(user)}>
-                <div className="card-body">
-                  <img
-                    className="user-avatar"
-                    src={user.avatarURL}
-                    alt={user.name}
-                  />
-                  <span className="user-name">{user.name}</span>
+        <div className="select-user">
+          <h2>Select an user</h2>
+          <div className="list-user d-flex justify-content-center">
+            {users &&
+              users.map((user) => (
+                <div
+                  key={user.id}
+                  className="card card-user w-25 m-2"
+                  data-testid="card-user"
+                  onClick={() => setSelectedUser(user)}
+                >
+                  <div className="card-body">
+                    <img
+                      className="user-avatar"
+                      src={user.avatarURL}
+                      alt={user.name}
+                    />
+                    <span className="user-name">{user.name}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+          </div>
         </div>
         <div className="form login-form">
           <form onSubmit={handleSubmit}>
@@ -87,7 +95,11 @@ const Login = ({ users }) => {
                 onChange={(event) => setPassword(event.target.value)}
               />
             </div>
-            <button className="btn btn-submit" data-testid="btn-submit" type="submit">
+            <button
+              className="btn btn-submit"
+              data-testid="btn-submit"
+              type="submit"
+            >
               Login
             </button>
           </form>

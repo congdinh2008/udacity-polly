@@ -259,6 +259,9 @@ code {
   height: auto;
 }
 
+.login-container .card-user {
+  cursor: pointer;
+}
 /* Create Poll CSS */
 
 .create-poll-container {
