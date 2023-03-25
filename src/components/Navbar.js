@@ -34,7 +34,7 @@ const Navbar = () => {
           >
             <Link className="profile-avatar">
               <img src={currentUser.avatarURL} alt={currentUser.name} />
-              <span className="profile-name">{currentUser.name}</span>
+              <span className="profile-name" data-testid="profile-name">{currentUser.name}</span>
             </Link>
             <div
               className={`profile-dropdown d-flex flex-column text-center ${

@@ -44,9 +44,9 @@ const PollItem = ({ id, user, exists, question, selected, dispatch }) => {
   return exists ? (
     <section className="poll-item text-center my-3">
       <div className="author-info">
-        <div className="author-title">Poll by {user.name}</div>
+        <div className="author-title">Poll by {question.authorName}</div>
         <div className="author-avatar">
-          <img src={user.avatarURL} alt={user.name} />
+          <img src={question.avatarURL} alt={question.authorName} />
         </div>
       </div>
       <div className="poll-info my-3">
@@ -115,6 +115,7 @@ const PollItem = ({ id, user, exists, question, selected, dispatch }) => {
 };
 
 const mapStateToProps = ({ authedUser, users, questions }, { router }) => {
+  console.log(router);
   const { id } = router.params;
   const user = users[authedUser.currentUser.id];
   const exists = Object.keys(questions).includes(id);
