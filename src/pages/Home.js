@@ -30,7 +30,7 @@ const mapStateToProps = ({ authedUser, questions }) => {
             (q) =>
               q.optionOne.votes.includes(authedUser.currentUser.id) ||
               q.optionTwo.votes.includes(authedUser.currentUser.id)
-          ),
+          ).sort((a, b) => b.timestamp - a.timestamp),
     unAnsweredQuestions:
       authedUser.currentUser === null
         ? []
@@ -38,7 +38,7 @@ const mapStateToProps = ({ authedUser, questions }) => {
             (q) =>
               !q.optionOne.votes.includes(authedUser.currentUser.id) &&
               !q.optionTwo.votes.includes(authedUser.currentUser.id)
-          ),
+          ).sort((a, b) => b.timestamp - a.timestamp),
   };
 };
 
