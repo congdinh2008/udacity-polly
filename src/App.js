@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import handleReceiveData from "./actions/shared";
 import Navbar from "./components/Navbar";
 import RouteURLs from "./constants/routeURLs";
@@ -23,13 +23,21 @@ const App = (props) => {
       <main className="container">
         <Routes>
           <Route path={RouteURLs.LOGIN_URL} element={<Login />} />
-          <Route path={RouteURLs.HOME_URL} element={<ProtectedRoute redirectTo={RouteURLs.LOGIN_URL} />}>
+          <Route
+            path={RouteURLs.HOME_URL}
+            element={<ProtectedRoute redirectTo={RouteURLs.LOGIN_URL} />}
+          >
             <Route index element={<Home />} />
-            <Route path={RouteURLs.LEADER_BOARD_URL} element={<LeaderBoard />} />
+            <Route
+              path={RouteURLs.LEADER_BOARD_URL}
+              element={<LeaderBoard />}
+            />
             <Route path={RouteURLs.CREATE_POLL_URL} element={<CreatePoll />} />
             <Route path={RouteURLs.POLL_ITEM_URL} element={<PollItem />} />
           </Route>
-          <Route path="*" element={<NotFound />} />
+
+          <Route path={RouteURLs.NOT_FOUND_URL} element={<NotFound />} />
+          <Route path="*" element={<Navigate to={RouteURLs.NOT_FOUND_URL} />} />
         </Routes>
       </main>
     </Fragment>
