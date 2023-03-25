@@ -49,7 +49,7 @@ const Login = ({ users }) => {
         <div className="select-user d-flex justify-content-center">
           {users &&
             users.map((user) => (
-              <div key={user.id} className="card w-25 m-2" onClick={()=> setSelectedUser(user)}>
+              <div key={user.id} className="card w-25 m-2" data-testid="card-user" onClick={()=> setSelectedUser(user)}>
                 <div className="card-body">
                   <img
                     className="user-avatar"
@@ -70,6 +70,7 @@ const Login = ({ users }) => {
               <input
                 type="text"
                 id="username"
+                data-testid="username"
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
               />
@@ -81,11 +82,12 @@ const Login = ({ users }) => {
               <input
                 type="password"
                 id="password"
+                data-testid="password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
             </div>
-            <button className="btn btn-submit" type="submit">
+            <button className="btn btn-submit" data-testid="btn-submit" type="submit">
               Login
             </button>
           </form>

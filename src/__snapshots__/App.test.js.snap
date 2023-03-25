@@ -1,0 +1,326 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App will match snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <nav
+        class="navbar"
+      >
+        <ul
+          class="nav-menu"
+        >
+          <li
+            class="nav-item"
+          >
+            <a
+              href="/"
+            >
+              Home
+            </a>
+          </li>
+          <li
+            class="nav-item"
+          >
+            <a
+              href="/leader-board"
+            >
+              Leader Board
+            </a>
+          </li>
+          <li
+            class="nav-item"
+          >
+            <a
+              href="/add"
+            >
+              New
+            </a>
+          </li>
+        </ul>
+        <ul
+          class="profile-menu"
+        >
+          <li
+            class="nav-item"
+          >
+            <a
+              href="/login"
+            >
+              Login
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <main
+        class="container"
+      >
+        <section
+          class="form-section login-section d-flex align-items-center"
+        >
+          <div
+            class="form-container login-container text-center"
+          >
+            <div
+              class="form-header"
+            >
+              <h1>
+                Udacity Polly
+              </h1>
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 448 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM160 368c0 8.84-7.16 16-16 16h-32c-8.84 0-16-7.16-16-16V240c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v128zm96 0c0 8.84-7.16 16-16 16h-32c-8.84 0-16-7.16-16-16V144c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v224zm96 0c0 8.84-7.16 16-16 16h-32c-8.84 0-16-7.16-16-16v-64c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v64z"
+                />
+              </svg>
+            </div>
+            <div
+              class="select-user d-flex justify-content-center"
+            />
+            <div
+              class="form login-form"
+            >
+              <form>
+                <div
+                  class="form-group d-flex flex-column"
+                >
+                  <label
+                    class="form-control-label"
+                    for="username"
+                  >
+                    Username
+                  </label>
+                  <input
+                    data-testid="username"
+                    id="username"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  class="form-group d-flex flex-column"
+                >
+                  <label
+                    class="form-control-label"
+                    for="password"
+                  >
+                    Password
+                  </label>
+                  <input
+                    data-testid="password"
+                    id="password"
+                    type="password"
+                    value=""
+                  />
+                </div>
+                <button
+                  class="btn btn-submit"
+                  data-testid="btn-submit"
+                  type="submit"
+                >
+                  Login
+                </button>
+              </form>
+              <span
+                class="error-message "
+              />
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <nav
+      class="navbar"
+    >
+      <ul
+        class="nav-menu"
+      >
+        <li
+          class="nav-item"
+        >
+          <a
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          class="nav-item"
+        >
+          <a
+            href="/leader-board"
+          >
+            Leader Board
+          </a>
+        </li>
+        <li
+          class="nav-item"
+        >
+          <a
+            href="/add"
+          >
+            New
+          </a>
+        </li>
+      </ul>
+      <ul
+        class="profile-menu"
+      >
+        <li
+          class="nav-item"
+        >
+          <a
+            href="/login"
+          >
+            Login
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <main
+      class="container"
+    >
+      <section
+        class="form-section login-section d-flex align-items-center"
+      >
+        <div
+          class="form-container login-container text-center"
+        >
+          <div
+            class="form-header"
+          >
+            <h1>
+              Udacity Polly
+            </h1>
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 448 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM160 368c0 8.84-7.16 16-16 16h-32c-8.84 0-16-7.16-16-16V240c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v128zm96 0c0 8.84-7.16 16-16 16h-32c-8.84 0-16-7.16-16-16V144c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v224zm96 0c0 8.84-7.16 16-16 16h-32c-8.84 0-16-7.16-16-16v-64c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v64z"
+              />
+            </svg>
+          </div>
+          <div
+            class="select-user d-flex justify-content-center"
+          />
+          <div
+            class="form login-form"
+          >
+            <form>
+              <div
+                class="form-group d-flex flex-column"
+              >
+                <label
+                  class="form-control-label"
+                  for="username"
+                >
+                  Username
+                </label>
+                <input
+                  data-testid="username"
+                  id="username"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                class="form-group d-flex flex-column"
+              >
+                <label
+                  class="form-control-label"
+                  for="password"
+                >
+                  Password
+                </label>
+                <input
+                  data-testid="password"
+                  id="password"
+                  type="password"
+                  value=""
+                />
+              </div>
+              <button
+                class="btn btn-submit"
+                data-testid="btn-submit"
+                type="submit"
+              >
+                Login
+              </button>
+            </form>
+            <span
+              class="error-message "
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
