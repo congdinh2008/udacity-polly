@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaPoll } from "react-icons/fa";
 import { connect, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { loginUser } from "../actions/authedUser";
 import { login } from "../apis/api";
 import RouteURLs from "../constants/routeURLs";
@@ -12,6 +12,7 @@ const Login = ({ users }) => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  const {state} = useLocation();
 
   const dispatch = useDispatch();
 
@@ -30,7 +31,7 @@ const Login = ({ users }) => {
       .then((res) => {
         if (res.success) {
           dispatch(loginUser(res.user));
-          navigate(RouteURLs.HOME_URL);
+          navigate(state?.path || RouteURLs.HOME_URL);
         } else {
           setErrorMessage(res.message);
         }

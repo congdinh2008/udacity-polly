@@ -25,17 +25,37 @@ const App = (props) => {
           <Route path={RouteURLs.LOGIN_URL} element={<Login />} />
           <Route
             path={RouteURLs.HOME_URL}
-            element={<ProtectedRoute redirectTo={RouteURLs.LOGIN_URL} />}
-          >
-            <Route index element={<Home />} />
-            <Route
-              path={RouteURLs.LEADER_BOARD_URL}
-              element={<LeaderBoard />}
-            />
-            <Route path={RouteURLs.CREATE_POLL_URL} element={<CreatePoll />} />
-            <Route path={RouteURLs.POLL_ITEM_URL} element={<PollItem />} />
-          </Route>
-
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route index element={<Home />} />
+          <Route
+            path={RouteURLs.LEADER_BOARD_URL}
+            element={
+              <ProtectedRoute>
+                <LeaderBoard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path={RouteURLs.CREATE_POLL_URL}
+            element={
+              <ProtectedRoute>
+                <CreatePoll />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path={RouteURLs.POLL_ITEM_URL}
+            element={
+              <ProtectedRoute>
+                <PollItem />
+              </ProtectedRoute>
+            }
+          />
           <Route path={RouteURLs.NOT_FOUND_URL} element={<NotFound />} />
           <Route path="*" element={<Navigate to={RouteURLs.NOT_FOUND_URL} />} />
         </Routes>
