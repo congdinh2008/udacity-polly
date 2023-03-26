@@ -53,8 +53,6 @@ export function handleVoteQuestion(info) {
 
     Object.assign(info, { authedUser: authedUser.currentUser.id });
 
-    dispatch(voteQuestion(info));
-
     return saveQuestionAnswer(info).catch((e) => {
       console.warn("Error in vote question: ", e);
     }).then(()=>{

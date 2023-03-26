@@ -125,7 +125,6 @@ const PollItem = ({ id, user, exists, question, selected, dispatch }) => {
 };
 
 const mapStateToProps = ({ authedUser, users, questions }, { router }) => {
-  console.log(router);
   const { id } = router.params;
   const user = users[authedUser.currentUser.id];
   const exists = Object.keys(questions).includes(id);
