@@ -7,6 +7,12 @@ In the "Employee Polls" Project, you'll build a web app that lets an employee cr
 
 In your app, users will be able to answer polls, see which polls they haven’t answered, see how other people have voted, post polls, and see the ranking of users on the leaderboard.
 
+## Prerequisites
+
+1. NodeJS
+2. Visual Studio Code
+3. Git
+
 ## Installation Instructions
 
 ### Clone the repository
@@ -195,3 +201,13 @@ Your code will talk to the database via 4 methods:
 - For answered polls, verify that the percentage of people who voted for an option is calculated and displayed correctly.
 - Verify the navigation bar displays all expected links.
 ### In the software industry, unit tests are typically written during the development process rather than after a project is completed. We encourage you to write these unit tests as you build the project out rather than saving them for the end. This will help you identify and fix bugs earlier in the process.
+
+## Authors
+
+* **Cong Dinh** - *Initial work* - [CongDinh](https://github.com/congdinh2008)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
