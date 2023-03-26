@@ -22,7 +22,6 @@ const App = (props) => {
       <Navbar />
       <main className="container">
         <Routes>
-          <Route path={RouteURLs.LOGIN_URL} element={<Login />} />
           <Route
             path={RouteURLs.HOME_URL}
             element={
@@ -31,7 +30,6 @@ const App = (props) => {
               </ProtectedRoute>
             }
           />
-          <Route index element={<Home />} />
           <Route
             path={RouteURLs.LEADER_BOARD_URL}
             element={
@@ -56,6 +54,7 @@ const App = (props) => {
               </ProtectedRoute>
             }
           />
+          <Route path={RouteURLs.LOGIN_URL} element={<Login />} />
           <Route path={RouteURLs.NOT_FOUND_URL} element={<NotFound />} />
           <Route path="*" element={<Navigate to={RouteURLs.NOT_FOUND_URL} />} />
         </Routes>
